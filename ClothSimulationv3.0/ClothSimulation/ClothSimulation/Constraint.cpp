@@ -16,6 +16,12 @@ void Constraint::satisfyConstraint()
 	// Lets make it half that length, so that we can move BOTH p1 and p2.
 	Vec3 correctionVectorHalf = correctionVector * 0.5;
 
+	if (current_distance / rest_distance >= 3.0f)
+	{
+		//it should break here
+		constrants_Broken = true;
+	}
+
 	// correctionVectorHalf is pointing from p1 to p2, so the length should move p1 half the length needed to satisfy the constraint.
 	p1->offsetPos(correctionVectorHalf);
 

@@ -9,6 +9,7 @@ class Constraint
 private:
 	// the length between particle p1 and p2 in rest configuration
 	float rest_distance; 
+	bool constrants_Broken;
 
 public:
 	//the two particles that are connected through this constraint
@@ -17,6 +18,7 @@ public:
 	Constraint(Particle *p1, Particle *p2) : p1(p1), p2(p2) { 
 		Vec3 vec = p1->getPos() - p2->getPos(); 
 		rest_distance = vec.length(); 
+		constrants_Broken = false;
 	}
 
 	//called by cloth time step to make sure the particles are constrained
